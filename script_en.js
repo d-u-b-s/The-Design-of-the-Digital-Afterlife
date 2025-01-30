@@ -1,4 +1,8 @@
-
+window.addEventListener("load", function () {
+  const loadingScreen = document.getElementById("loading-screen");
+  loadingScreen.classList.add("hidden");
+  setTimeout(() => loadingScreen.style.display = "none", 500);
+});
 
 // parallax
 document.addEventListener('scroll', function () {
