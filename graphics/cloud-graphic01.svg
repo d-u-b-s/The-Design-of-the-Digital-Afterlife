@@ -1,0 +1,32 @@
+<svg width="500" height="380" viewBox="0 0 500 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="500" height="380" fill="#C4C4C4"/>
+<path d="M175.322 95.397L175.844 95.2407L175.857 94.6958C176.487 67.3531 198.642 41.75 229.429 41.75C251.174 41.75 267.707 54.0294 276.103 69.1673L276.429 69.7558L277.05 69.4949C287.454 65.119 299.23 65.8201 308.757 71.536C318.456 77.3554 325.53 88.4132 326.152 103.308L326.176 103.882L326.737 104.008C344.896 108.106 357.25 125.7 357.25 143.857C357.25 166.203 338.64 184.25 311.714 184.25H188.286C163.167 184.25 142.75 163.833 142.75 138.714C142.75 118.15 156.539 101.023 175.322 95.397ZM276.504 73.4363L276.5 73.4384C276.069 73.6568 275.57 73.6956 275.111 73.5462C274.653 73.397 274.272 73.0721 274.053 72.6427C266.629 57.7981 250.717 45.3929 229.429 45.3929C200.013 45.3929 179.091 70.3803 179.339 96.2929L179.339 96.3011L179.34 96.3094C179.353 96.723 179.225 97.1287 178.976 97.4598C178.728 97.7905 178.375 98.027 177.975 98.1305C159.834 102.725 146.393 119.109 146.393 138.714C146.393 161.882 165.118 180.607 188.286 180.607H311.714C337.082 180.607 353.607 164.351 353.607 143.857C353.607 126.849 341.559 109.934 324.294 107.037L324.287 107.036C323.864 106.969 323.479 106.756 323.198 106.433C322.918 106.112 322.76 105.703 322.75 105.278C322.748 90.3907 316.088 80.1475 306.957 74.6692C297.85 69.2047 286.22 68.5783 276.504 73.4363Z" fill="black" stroke="#C4C4C4" stroke-width="1.5"/>
+<rect x="211" y="91" width="78" height="20" stroke="black" stroke-width="2"/>
+<rect x="218.5" y="100.5" width="1" height="1" fill="#D9D9D9" stroke="black"/>
+<rect x="224.5" y="100.5" width="1" height="1" fill="#D9D9D9" stroke="black"/>
+<rect x="230.5" y="100.5" width="1" height="1" fill="#D9D9D9" stroke="black"/>
+<rect x="242.5" y="100.5" width="39" height="1" fill="#D9D9D9" stroke="black"/>
+<rect x="211" y="117" width="78" height="20" stroke="black" stroke-width="2"/>
+<rect x="218.5" y="126.5" width="1" height="1" fill="#D9D9D9" stroke="black"/>
+<rect x="224.5" y="126.5" width="1" height="1" fill="#D9D9D9" stroke="black"/>
+<rect x="230.5" y="126.5" width="1" height="1" fill="#D9D9D9" stroke="black"/>
+<rect x="242.5" y="126.5" width="39" height="1" fill="#D9D9D9" stroke="black"/>
+<rect x="211" y="143" width="78" height="20" stroke="black" stroke-width="2"/>
+<rect x="218.5" y="152.5" width="1" height="1" fill="#D9D9D9" stroke="black"/>
+<rect x="224.5" y="152.5" width="1" height="1" fill="#D9D9D9" stroke="black"/>
+<rect x="230.5" y="152.5" width="1" height="1" fill="#D9D9D9" stroke="black"/>
+<rect x="242.5" y="152.5" width="39" height="1" fill="#D9D9D9" stroke="black"/>
+<rect x="201" y="264" width="98" height="58" stroke="black" stroke-width="2"/>
+<rect x="236" y="322" width="28" height="16" stroke="black" stroke-width="2"/>
+<rect x="220.5" y="337.5" width="59" height="1" stroke="black"/>
+<rect x="51" y="264" width="98" height="58" stroke="black" stroke-width="2"/>
+<rect x="86" y="322" width="28" height="16" stroke="black" stroke-width="2"/>
+<rect x="70.5" y="337.5" width="59" height="1" stroke="black"/>
+<rect x="351" y="264" width="98" height="58" stroke="black" stroke-width="2"/>
+<rect x="386" y="322" width="28" height="16" stroke="black" stroke-width="2"/>
+<rect x="370.5" y="337.5" width="59" height="1" stroke="black"/>
+<line x1="251" y1="183" x2="251" y2="263" stroke="black" stroke-width="2"/>
+<line x1="401" y1="223" x2="401" y2="263" stroke="black" stroke-width="2"/>
+<line x1="101" y1="223" x2="101" y2="263" stroke="black" stroke-width="2"/>
+<line x1="400" y1="224" x2="100" y2="224" stroke="black" stroke-width="2"/>
+</svg>

@@ -1,0 +1,702 @@
+:root {
+    --gray01: #c4c4c4;
+    --black01: #000;
+}
+
+body {
+    background-image: url('backgrounds/background-master.webp');
+    background-size: 150%;
+    background-repeat: no-repeat;
+    /* background-position: top; */
+    background-attachment: fixed;
+}
+
+body {
+  cursor: url('arrows/cursor01.svg') 0 0, auto;
+}
+
+body a {
+  cursor: url('arrows/cursor02.svg') 0 0, pointer;
+}
+
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Edge */
+  }
+
+#menu-container {
+  position: fixed;               /* Fix the container to the left of the screen */
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;                 /* Flexbox for the arrow and menu */
+  align-items: center;           /* Vertically center the arrow within the container */
+  transform: translateX(-400px); /* Initially hidden off-screen */
+  transition: transform 0.5s ease; /* Smooth transition when sliding in/out */
+  z-index: 10;
+}
+  
+#menu-container.open {
+    transform: translateX(0);      /* Slide the container into view */
+}
+
+#menu {
+    background-color: var(--gray01);
+    color: var(--black01);
+    height: 100%;
+    width: 400px;                  /* Fixed width for the menu */
+    overflow-y: auto;
+}
+
+/* Apply custom scrollbar styling for WebKit-based browsers */
+#menu {
+  scrollbar-width: thin; /* Firefox: Makes the scrollbar thin */
+  scrollbar-color: var(--black01) transparent; /* Firefox: Black thumb, transparent track */
+}
+
+#menu::-webkit-scrollbar {
+  width: 4px; /* Width of the scrollbar */
+}
+
+#menu::-webkit-scrollbar-track {
+  background: transparent; /* Background of the scrollbar track */
+}
+
+#menu::-webkit-scrollbar-thumb {
+  background-color: var(--black01); /* Color of the scrollbar thumb */
+}
+
+/* .dropdown {
+    margin-bottom: 20px;
+  } */
+  
+  .dropdown-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: url('arrows/cursor02.svg') 0 0, pointer;;
+    padding: 32px 16px 0px 8px;
+  }
+  
+  .dropdown-title span {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 200;
+    font-size: 32px;
+  }
+
+  .menu-title {
+    text-decoration: none;
+    color: var(--black01);
+  }
+  
+  .dropdown-title img {
+    width: 28px;
+    height: auto;
+    transition: transform 0.5s ease;
+  }
+  
+  .dropdown-menu {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+    max-height: 0; /* Initially hidden */
+    overflow: hidden; /* Hide content when collapsed */
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0; /* Invisible initially */
+    /* display: none; Hidden by default */
+  }
+  
+  .dropdown-menu li {
+    padding: 4px 16px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+
+  .dropdown-menu li:hover {
+    text-decoration: underline;
+  }
+  
+  /* Rotate the arrow when active */
+  .dropdown.active .dropdown-title img {
+    transform: scaleY(-1);
+  }
+  
+  /* Show the dropdown menu when active */
+  .dropdown.active .dropdown-menu {
+    /* display: block; */
+    max-height: 4000px; /* Set to a value large enough to fit all items */
+  opacity: 1; /* Fully visible */
+  }
+
+#primary {
+    margin-left: 25%;                /* Default body content margin */
+    transition: margin-left 0.5s ease; /* Smooth transition when shifting */
+    overflow: auto; /* Enable scrolling */
+}
+
+#primary.shifted-right {
+  margin-left: calc(25% + 200px);            /* Shift content to the right by menu's width */
+}
+
+#primary.shifted-left {
+  margin-left: calc(25% - 200px);            /* Shift content to the left by menu's width */
+}
+
+#start-button {
+    background-color: transparent;  /* Button's default background color */
+    color: var(--gray01);               /* Button's default text color */
+    border: 1px solid var(--gray01);  /* Border matching the background */
+    padding: 12px 24px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: url('arrows/cursor02.svg') 0 0, pointer;;
+    transition: background-color 0.3s, color 0.3s;  /* Smooth transition */
+    z-index: 1;
+  }
+
+#end-button {
+  background-color: var(--gray01);
+  color: var(--black01);
+  border: 1px solid var(--gray01);
+  padding: 12px 24px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  z-index: 1;
+  visibility: hidden;
+}
+  
+#start-button:hover {
+    background-color: var(--gray01);    /* Button's background color on hover */
+    color: var(--black01);             /* Button's text color on hover */
+}
+
+#timeline {
+    /* position: absolute; */
+    width: 1px;
+    height: 0; /* Initially hidden */
+    background-color: var(--gray01);
+    top: 0;
+    left: 50%; /* Center it under the button */
+    transform: translateX(-50%); /* Adjust for centering */
+    transition: height 3s ease; /* Smooth transition for appearance */
+    z-index: 0; /* Place below button */
+    margin: 0 0 0 42px; /* Adjust for centering */
+  }
+
+.timeline-branch {
+  width: 180px;
+  height: 1px;
+  background-color: var(--gray01);
+  z-index: 0;
+}
+
+.side_text {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: var(--black01); 
+    margin: 0;
+    padding: 0;
+}
+
+#side-arrow-right {
+    top: 50%;                    /* Vertically center */
+    transform: translateY(-50%);  /* Correct vertical centering */
+    cursor: url('arrows/cursor02.svg') 0 0, pointer;;            /* Makes the arrow clickable */
+    z-index: 10;                   /* Ensure it appears above the menu */
+    background-image: url('arrows/arrow01-right.svg'); /* Default image */
+    background-size: cover;
+    background-position: center;
+    transition: left 0.5s ease;
+}
+
+#side-arrow-right:hover {
+    background-image: url('arrows/arrow02-right.svg'); /* Hover image */
+  }
+
+/* Optional: Make the images responsive to fit the design */
+.side-arrow-right img {
+    width: 50px;                  /* Adjust image width */
+    height: auto;                 /* Maintain aspect ratio */
+}
+
+#side-arrow-left {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  visibility: hidden;
+  cursor: url('arrows/cursor02.svg') 0 0, pointer;;
+  z-index: 101;
+  transition: background-image 0.5s, right 0.5s ease;
+  background-size: cover;
+  background-position: center;
+}
+
+#side-arrow-left:hover {
+  background-image: url('arrows/arrow02-left.svg'); /* Hover image */
+}
+
+.side-arrow-left img {
+  width: 50px;                  /* Adjust image width */
+  height: auto;                 /* Maintain aspect ratio */
+}
+
+#side-arrow-left.open {
+  right: 400px;
+}
+
+h1 {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 54px;
+    font-weight: 100;
+    letter-spacing: 2px;
+    color: var(--gray01);
+    margin: 0 0 0 -4px;
+    padding: 0;
+}
+
+h2 {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 32px;
+    font-weight: 200;
+    color: var(--gray01);
+    padding: 0;
+}
+
+h3 {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: var(--gray01);
+    margin: 0;
+    padding: 0;
+}
+
+.side-text {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--black01);
+}
+
+#language-nav {
+    display: flex;
+}
+
+.language-button {
+    background-color: transparent;  /* Button's default background color */
+    color: var(--gray01);               /* Button's default text color */
+    border: 1px solid var(--gray01);  /* Border matching the background */
+    padding: 8px 16px;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    cursor: url('arrows/cursor02.svg') 0 0, pointer;
+    transition: background-color 0.5s, color 0.5s;  /* Smooth transition */
+}
+
+.language-button:hover {
+    background-color: var(--gray01);    /* Button's background color on hover */
+    color: var(--black01);             /* Button's text color on hover */
+}
+
+nav ul li {
+    list-style-type: none;
+}
+
+.language-button a {
+    color: inherit;       /* Inherit color from the parent button */
+    text-decoration: none; /* Remove underline */
+}
+
+#fr {
+    margin: 0 0 0 -1px;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end; /* Align the language menu to the right */
+    padding: 20px; /* Optional: Add some padding to the header */
+}
+
+#timeline-block {
+  position: relative;
+    margin: 82px 0 0 0;
+}
+
+#primary-content {
+    display: flex;
+}
+
+.primary-image-description {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+    color: var(--gray01);
+}
+
+.bibliography-source {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+    color: var(--gray01) !important;
+}
+
+.bibliography-source a {
+  color: var(--gray01);
+  word-break: break-word;
+}
+
+#bibliography {
+  margin: 300px 0 0 -88px;
+  max-width: 800px;
+}
+
+.primary-link a {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    max-width: 300px;
+    color: var(--gray01);
+    display: block;
+    margin: -29.5px 8px 0 0;
+    text-decoration: underline;
+    /* word-break: break-all; */
+}
+
+.pdf-icon {
+  margin: -12px 0 0 0;
+  cursor: url('arrows/cursor02.svg') 0 0, pointer;;
+  background-image: url('graphics/pdf-icon01.svg');
+  transition: background-image 0.5s;
+  background-size: cover;
+  background-position: center;
+  width: 32px;
+  height: 13px;
+}
+
+.pdf-icon:hover {
+  background-image: url('graphics/pdf-icon02.svg');
+}
+
+.pdf-icon-secondary {
+  margin: -11.8px 0 0 0;
+  cursor: url('arrows/cursor02.svg') 0 0, pointer;;
+  background-image: url('graphics/pdf-icon03.svg');
+  transition: background-image 0.5s;
+  background-size: cover;
+  background-position: center;
+  width: 32px;
+  height: 13px;
+}
+
+.shift-down01 {
+  margin: 17px 0 0 0;
+}
+
+.pdf-icon-secondary:hover {
+  background-image: url('graphics/pdf-icon04.svg');
+}
+
+
+.image-container img {
+    max-width: 500px;       /* Restrict width to a maximum of 500px */
+    max-height: 500px;      /* Restrict height to a maximum of 500px */
+    width: auto;            /* Maintain aspect ratio */
+    height: auto;           /* Maintain aspect ratio */
+    border: 1.5px solid var(--gray01); /* Add a 1px solid border */
+    display: block;         /* Prevent inline spacing issues */
+    box-sizing: border-box; /* Include border in dimensions */
+    z-index: 1;
+}
+
+.connected-flex {
+    margin: 200px 0 0 -48px;
+    display: flex;
+    max-width: 565px;
+}
+
+.link-flex {
+  margin: 34px 0 0 -48px;
+  display: flex;
+  max-width: 565px;
+}
+
+.link-underline {
+  width: 100%;
+  height: 1px;
+  background-color: var(--gray01);
+}
+
+.link-underline-black {
+  width: 100%;
+  height: 1.2px;
+  background-color: var(--black01);
+  margin: 0 0 -15.2 0;
+}
+
+#timeline-block {
+  position: relative;
+    margin: 82px 0 0 0;
+}
+
+#down-arrow {
+  position: fixed;
+  bottom: 0; /* Positions the arrow at the bottom of the screen */
+  left: calc(25% + 28.5px);
+  width: 35px; /* Adjusts the arrow size */
+  height: auto; /* Maintains the aspect ratio */
+  z-index: 2; /* Ensures it stays above other elements */
+  transition: left 0.5s ease; /* Smooth transition when shifting */
+}
+
+#down-arrow.shifted-right {
+  left: calc(25% + 28.5px + 200px); /* Shifts the arrow to the right */
+}
+
+#down-arrow.shifted-left {
+  left: calc(25% + 28.5px - 200px); /* Shifts the arrow to the right */
+}
+
+.primary-text {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 28px;
+    color: var(--gray01);
+    margin: 20px 0 0 0;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.no-scroll {
+  overflow: hidden; /* Disables scrolling */
+}
+
+.preface-block {
+  max-width: 500px; 
+  margin: 0 0 200px 0;
+}
+
+.section-title {
+  max-width: 500px; 
+  margin: 300px 0 200px 64px;
+}
+
+.temporality {
+  margin: 0 0 -8px 12px;
+}
+
+.title-wrapper {
+  display: inline-block;
+}
+
+.title-underline {
+  width: 100%;
+  height: 1px;
+  background-color: var(--gray01);
+  margin: -13.5px 0 0 0;
+}
+
+.preface-flex {
+  display: flex;
+  margin: 500px 0 0 -48px;
+}
+
+.title-branch {
+  width: 180px;
+  height: 1px;
+  background-color: var(--gray01);
+  z-index: 0;
+  margin: 52.1px 0 0 0;
+}
+
+main {
+  margin: 300px 0 0 0;
+}
+
+#secondary {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  right: -400px; /* Initially hidden off-screen */
+  width: 400px;
+  height: 100vh;
+  background-color: var(--gray01);
+  overflow-y: auto; /* Enable scrolling within the pop-in */
+  transition: right 0.5s ease; /* Smooth slide-in */
+  z-index: 100;
+}
+
+ul.secondary-list {
+  list-style: none; /* Hide default bullets */
+  padding-left: 12px; /* Add space for custom bullets */
+}
+
+ul.secondary-list li {
+  position: relative; /* Position for the custom bullet */
+}
+
+ul.secondary-list li::before {
+  content: "■"; /* Add your custom bullet character */
+  color: var(--black01); /* Custom color */
+  font-size: 12px; /* Match the size of the text */
+  position: absolute; /* Position the bullet */
+  left: -12px; /* Align it to the left of the text */
+  top: 0; /* Align to the top of the text */
+}
+
+#secondary.open {
+  right: 0; /* Slide in from the right */
+}
+
+#secondary-content {
+  padding: 20px;
+}
+
+/* Close button */
+#close-secondary {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: url('arrows/cursor02.svg') 0 0, pointer;;
+}
+
+/* Keyword links */
+.keyword-link {
+  color: var(--gray01);
+  text-decoration: underline;
+  cursor: url('arrows/cursor02.svg') 0 0, pointer;;
+}
+
+.secondary-title {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  font-weight: 200;
+  color: var(--black01);
+  margin: 0 0 20px 0;
+}
+
+.secondary-text {
+  display: inline-block;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--black01);
+  margin: 0 0 20px 0;
+}
+
+.secondary-img {
+  max-width: 100%;
+  max-height: 500px;
+  justify-self: center;
+  height: auto;
+  display: block;
+  margin: 24px 20px 8px 0px;
+  border: 1.5px solid var(--black01); 
+  margin: 24px 0 8px 0;
+}
+
+.secondary-link-flex {
+  display: flex;
+  max-width: 100%;
+  margin: 12px 0 0 0;
+}
+
+.divider01 {
+  width: 100%;
+  height: 12px;
+}
+
+.secondary-text a {
+  color: var(--black01) !important;
+  text-decoration: underline !important;
+  word-break: break-word;
+  max-width: 100px;
+}
+
+/* Apply custom scrollbar styling for WebKit-based browsers */
+#secondary {
+  scrollbar-width: thin; /* Firefox: Makes the scrollbar thin */
+  scrollbar-color: var(--black01) transparent; /* Firefox: Black thumb, transparent track */
+}
+
+#secondary::-webkit-scrollbar {
+  width: 4px; /* Width of the scrollbar */
+}
+
+#secondary::-webkit-scrollbar-track {
+  background: transparent; /* Background of the scrollbar track */
+}
+
+#secondary::-webkit-scrollbar-thumb {
+  background-color: var(--black01); /* Color of the scrollbar thumb */
+}
+
+.dropdown-menu li a {
+  text-decoration: none !important; /* Removes the underline */
+  color: inherit !important;
+}
+
+.glossary-text {
+  display: inline-block;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--black01);
+  margin: 0 0 0 0;
+}
+
+/* Lightbox container */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* Dark background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  cursor: url('arrows/cursor02.svg') 0 0, pointer;;
+}
+
+/* The lightbox image */
+#lightbox img {
+  max-width: 1000px;
+  max-height: 90vh; /* Keep the image within the viewport height */
+  border: 1px solid var(--gray01);
+}
+
+/* Lightbox visible state */
+#lightbox.show {
+  visibility: visible;
+  opacity: 1;
+} 
+
+.lightbox-trigger {
+  cursor: url('arrows/cursor02.svg') 0 0, pointer;;
+}
