@@ -737,3 +737,25 @@ ul.secondary-list li::before {
 .lightbox-trigger {
   cursor: url('arrows/cursor02.svg') 0 0, pointer;;
 }
+
+@media screen and (max-width: 900px) {
+  body * {
+    display: none; /* Hide everything */
+  }
+  
+  body::before {
+    content: "This website is not yet responsive. Please view it on a larger screen.";
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    color: white;
+    background: black;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
