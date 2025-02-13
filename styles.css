@@ -630,6 +630,13 @@ ul.secondary-list li::before {
   color: var(--black01);
   margin: 0 0 20px 0;
 }
+.secondary-subtitle {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--black01);
+  margin: 0 0 0 0;
+}
 
 .secondary-text {
   display: inline-block;
