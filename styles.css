@@ -3,6 +3,14 @@
     --black01: #000;
 }
 
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-VariableFont_opsz\,wght.ttf') format('woff2'),
+       url('fonts/Inter-Italic-VariableFont_opsz\,wght.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Full-page loading overlay */
 #loading-screen {
   position: fixed;
@@ -47,6 +55,7 @@ body {
     background-repeat: no-repeat;
     /* background-position: top; */
     background-attachment: fixed;
+    image-rendering: pixelated;
 }
 
 body {
