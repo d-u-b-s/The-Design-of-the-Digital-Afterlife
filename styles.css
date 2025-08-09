@@ -517,6 +517,16 @@ header {
     text-wrap: balance;
 }
 
+.loading-text {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 28px;
+    color: var(--gray01);
+    margin: 0 0 0 20px;
+    text-wrap: balance;
+}
+
 .hidden {
     opacity: 0;
     visibility: hidden;
